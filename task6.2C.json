@@ -47,8 +47,8 @@ pipeline{
                 success{
                     emailext (
                     to:"mabelsheh@gmail.com",
-                    subject:"Success Security Test from Jenkins",
-                    body:" Security Test is completed",
+                    subject:"Success Security Scan Test from Jenkins",
+                    body:" Security Scan Test is completed",
                     attachLog: true
                     )
                 }
