@@ -17,9 +17,20 @@ pipeline{
             }
             post{
                 success{
-                    mail to: "mabelsheh@gmail.com",
-                    subject: "Email for Testing",
-                    body: "Test was successful"
+                    emailext (
+                    to:"mabelsheh@gmail.com",
+                    subject:"Success Unit Test from Jenkins",
+                    body:"Test is completed",
+                    attachLog: true
+                    )
+                }
+                failure {
+                    emailext(
+                    to:"mabelsheh@gmail.com",
+                    subject:"Failure Unit Test from Jenkins",
+                    body:"Test failed",
+                    attachLog: true
+                    )
                 }
             }
         }
@@ -34,9 +45,20 @@ pipeline{
             }
             post{
                 success{
-                    mail to: "mabelsheh@gmail.com",
-                    subject: "Email for Security Scan",
-                    body: "Security Scan was successful"
+                    emailext (
+                    to:"mabelsheh@gmail.com",
+                    subject:"Success Security Test from Jenkins",
+                    body:" Security Test is completed",
+                    attachLog: true
+                    )
+                }
+                failure {
+                    emailext(
+                    to:"mabelsheh@gmail.com",
+                    subject:"Failure Security Test from Jenkins",
+                    body:"Security Test failed",
+                    attachLog: true
+                    )
                 }
             }
         }
